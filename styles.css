@@ -1,0 +1,33 @@
+:root {
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url(/img/nature-gefa89d710_1920.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border: 3px solid #fffbc0;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.gameWrapper {
+    margin-top: 120px;
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+}

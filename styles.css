@@ -1,5 +1,7 @@
 :root {
-
+--accent-color: #fffbc0;
+--playerOne-color: #a4d43d;
+--playerTwo-color: #fdcf65;
 }
 
 *, *::before, *::after {
@@ -16,9 +18,9 @@ body {
 }
 
 .box {
-    border: 3px solid #fffbc0;
-    width: 100px;
-    height: 100px;
+    border: 3px solid var(--accent-color);
+    width: 125px;
+    height: 125px;
     border-radius: 10px;
 }
 
@@ -30,4 +32,36 @@ body {
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 20px;
+}
+
+.formPopup {
+    position: fixed;
+    display: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .7);
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+}
+
+.formLabel {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.pOne {
+    color: var(--playerOne-color);
+}
+
+.pTwo {
+    color: var(--playerTwo-color);
+}
+
+.playerForm,
+.gameMode {
+    margin: 20px;
 }

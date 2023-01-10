@@ -20,11 +20,12 @@ gameForm.addEventListener('submit', (e) => {
 
 const initializeVariables = (data) => {
     data.gameMode = +data.gameMode
-    data.board = ['X', 1, 2, 3, 4, 5, 6, 7, 8]
+    data.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     data.playerOne = 'X'
     data.playerTwo = 'O'
     data.currentPlayer = 'X'
     data.gameOver = false
+    data.round = 0
 }
 
 const addEventListenerToBoard = (data) => {
@@ -49,6 +50,8 @@ const playMove = (box, data) => {
     box.textContent = data.currentPlayer
     box.classList.add(data.currentPlayer === 'X' ? "player1" : "player2")
 
+    data.round++
+
     // Check end conditions
     if(endConditions(data)) {
         //adjust DOM to reflect conditions
@@ -56,9 +59,32 @@ const playMove = (box, data) => {
     
 }
 
-// const endConditions = (data){
+const endConditions = (data) => {
+    if (checkWinner(data)) {
+        // Adjust DOM to reflect win
+        return true
+    } else if (data.round === 9){
+        //Adjust DOM to reflect tie
+        return true
+    }
+    return false
+}
 
-// }
+const checkWinner = (data, player) => {
+    let result = false;
+    winConditions.forEach((condition) => {
+      if (
+        data.board[condition[0]] === player &&
+        data.board[condition[1]] === player &&
+        data.board[condition[2]] === player
+      ) {
+        console.log('Player has won')
+        data.gameOver = true
+        result = true;
+      }
+    });
+    return result;
+};
 
 const initializeGame = (data) => {
     initializeVariables(data)

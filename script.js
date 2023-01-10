@@ -9,16 +9,45 @@ gameForm.addEventListener('submit', (e) => {
 
 const initializeVariables = (data) => {
     data.gameMode = +data.gameMode
-    data.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    data.board = ['X', 1, 2, 3, 4, 5, 6, 7, 8]
     data.playerOne = 'X'
     data.playerTwo = 'O'
     data.currentPlayer = 'X'
     data.gameOver = false
 }
 
+const addEventListenerToBoard = (data) => {
+    document.querySelectorAll('.box').forEach(box => {
+        box.addEventListener('click', (event) => {
+            playMove(event.target, data)
+        })
+    })
+}
+
+const playMove = (box, data) => {
+    // is game over? if so, don't do anything
+    if(data.gameOver) {
+        return
+    } 
+    // check if box is already taken
+    if(data.board[box.id] === 'X' || data.board[box.id] === 'O'){
+        return
+    }
+    //adjust DOM playermove & check for win
+    data.board[box.id] = data.currentPlayer
+    box.textContent = data.currentPlayer
+    box.classList.add(data.currentPlayer === 'X' ? "player1" : "player2")
+
+
+    // console.log(box, data)
+}
+
 const initializeGame = (data) => {
     initializeVariables(data)
-    console.log(data)
+    // console.log(data)
+
+    // Add event listener to board
+    addEventListenerToBoard(data)
 }
 
 const updateTurnDisplay = () => {

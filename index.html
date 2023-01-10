@@ -14,7 +14,7 @@
         <h3 class="displayTurn">Player 1's turn</h3>
         <div class="buttons">
             <button class="btn" id="resetBtn">Reset Game</button>
-            <button class="btn" id="playBtn" >Play Game</button>
+            <button class="btn" id="playBtn" onclick="openForm()">Play Game</button>
         </div>
         <div class="gameWrapper">
             <div class="gameBoard">
@@ -28,47 +28,49 @@
                 <div class="box" id="7"></div>
                 <div class="box" id="8"></div>
             </div>
-            <div class="formPopup">
-                <form action="#" id="gameForm">
-                    <div class="playerForm">
-                        <label for="playerOne" class="formLabel pOne">Player One:</label>
-                        <input
-                        type="text"
-                        name="playerOne"
-                        id="playerOne"
-                        placeholder="Player One"
-                        required>
-                    </div>
-                    <div class="playerForm">
-                        <label for="playerTwo" class="formLabel pTwo">Player Two:</label>
-                        <input 
-                        type="text"
-                        name="playerTwo"
-                        id="PlayerTwo"
-                        placeholder="Player Two"
-                        required>
-                    </div>
-                    <div class="gameMode">
-                        <label for="gameMode" class="formLabel">Player vs Player: </label>
-                        <input 
-                        type="radio"
-                        id="gameMode"
-                        name="gameMode"
-                        value="0"
-                        required>
-                    </div>
-                    <div class="gameMode">
-                        <label for="gameMode" class="formLabel">Player vs AI: </label>
-                        <input 
-                        type="radio"
-                        id="gameMode"
-                        value="1"
-                        name="gameMode">
-                    </div>
-                    <div class="formBtns">
-                        <button>Start Game</button>
-                    </div>
-                </form>
+            <div class="formPopup" id="formPopUp">
+                <div class="formWrapper">
+                    <form action="#" id="gameForm">
+                        <div class="playerForm">
+                            <label for="playerOne" class="formLabel pOne">Player One:</label>
+                            <input
+                            type="text"
+                            name="playerOne"
+                            id="playerOne"
+                            placeholder="Player One"
+                            required>
+                        </div>
+                        <div class="playerForm">
+                            <label for="playerTwo" class="formLabel pTwo">Player Two:</label>
+                            <input
+                            type="text"
+                            name="playerTwo"
+                            id="PlayerTwo"
+                            placeholder="Player Two"
+                            required>
+                        </div>
+                        <div class="gameMode">
+                            <label for="gameMode" class="formLabel">Player vs Player: </label>
+                            <input
+                            type="radio"
+                            id="gameMode"
+                            name="gameMode"
+                            value="0"
+                            required>
+                        </div>
+                        <div class="gameMode">
+                            <label for="gameMode" class="formLabel">Player vs AI: </label>
+                            <input
+                            type="radio"
+                            id="gameMode"
+                            value="1"
+                            name="gameMode">
+                        </div>
+                        <div class="formBtns">
+                            <button>Start Game</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -17,11 +17,25 @@ body {
     align-items: center;
 }
 
+.title, 
+.buttons, 
+.box {
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px var(--accent-color),
+    0 0 82px var(--accent-color), 0 0 92px var(--accent-color), 0 0 102px var(--accent-color), 0 0 151px var(--accent-color);
+}
+
 .box {
     border: 3px solid var(--accent-color);
     width: 125px;
     height: 125px;
     border-radius: 10px;
+    cursor: pointer;
+    font-size: 7rem;
+    text-align: center;
+    color: #fff;
+    /* text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px var(--accent-color),
+    0 0 82px var(--accent-color), 0 0 92px var(--accent-color), 0 0 102px var(--accent-color), 0 0 151px var(--accent-color); */
 }
 
 .gameWrapper {

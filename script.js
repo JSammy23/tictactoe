@@ -1,3 +1,14 @@
+const winConditions = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,4,8],
+    [2,4,6],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8]
+]
+
 const gameForm = document.getElementById('gameForm')
 gameForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -38,9 +49,16 @@ const playMove = (box, data) => {
     box.textContent = data.currentPlayer
     box.classList.add(data.currentPlayer === 'X' ? "player1" : "player2")
 
-
-    // console.log(box, data)
+    // Check end conditions
+    if(endConditions(data)) {
+        //adjust DOM to reflect conditions
+    }
+    
 }
+
+// const endConditions = (data){
+
+// }
 
 const initializeGame = (data) => {
     initializeVariables(data)

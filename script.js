@@ -1,4 +1,7 @@
-const Gameboard = {
-    let gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-
+const gameForm = document.getElementById('gameForm')
+gameForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData(gameForm)
+    const data = Object.fromEntries(formData)
+    console.log(data)
+})

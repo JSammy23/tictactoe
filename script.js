@@ -8,6 +8,8 @@ const winConditions = [
     [1,4,7],
     [2,5,8]
 ]
+const resetGameBtn = document.getElementById('resetBtn')
+
 
 const gameForm = document.getElementById('gameForm')
 gameForm.addEventListener('submit', (e) => {
@@ -33,6 +35,11 @@ const addEventListenerToBoard = (data) => {
         box.addEventListener('click', (event) => {
             playMove(event.target, data)
         })
+    })
+    resetGameBtn.addEventListener('click', () => {
+        initializeVariables(data)
+        resetDom()
+        adjustDom('displayTurn', `${data.player1Name}'s turn`)
     })
 }
 
@@ -103,6 +110,13 @@ const adjustDom = (className, text) => {
     const elem = document.querySelector(`.${className}`);
     // elem.style.display = 'block'
     elem.textContent = text
+}
+
+const resetDom = () => {
+    document.querySelectorAll('.box').forEach((box) => {
+        box.className = "box"
+        box.textContent = ""
+    })
 }
 
 const initializeGame = (data) => {

@@ -57,8 +57,13 @@ const playMove = (box, data) => {
         return
     }
 
-    // Change current player 
-    changePlayer(data)
+    if(data.gameMode === 0){
+        changePlayer(data)
+    } else if (data.gameMode === 1){
+        // easy AI
+        //change back to player
+    }
+    
     
 }
 

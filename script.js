@@ -54,8 +54,11 @@ const playMove = (box, data) => {
 
     // Check end conditions
     if(endConditions(data)) {
-        //adjust DOM to reflect conditions
+        return
     }
+
+    // Change current player 
+    changePlayer(data)
     
 }
 
@@ -63,11 +66,13 @@ const endConditions = (data) => {
     if (checkWinner(data)) {
         // Adjust DOM to reflect win
         let winnerName = 
-        data.currentPlayer === "X" ? data.player1Name : data.player2name
+        data.currentPlayer === "X" ? data.player1Name : data.player2Name
         adjustDom("displayTurn", winnerName  + " has won the game!")
         return true
     } else if (data.round === 9){
         //Adjust DOM to reflect tie
+        adjustDom("displayTurn", "It's a Tie!")
+        data.gameOver = true
         return true
     }
     return false
@@ -95,15 +100,12 @@ const adjustDom = (className, text) => {
 
 const initializeGame = (data) => {
     initializeVariables(data)
-    // console.log(data)
-
-    // Add event listener to board
+    
     addEventListenerToBoard(data)
 }
 
-const updateTurnDisplay = () => {
-    const turnDisplay = document.querySelector('.displayTurn')
-    // Update current player turn
+const changePlayer = (data) => {
+    data.currentPlayer = data.currentPlayer === "X" ? "O" : "X"
 }
 
 function openForm() {

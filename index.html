@@ -11,7 +11,7 @@
 <body>
     <div class="content">
         <h1 class="title">Tic Tac Toe</h1>
-        <h3 class="displayTurn">Player 1's turn</h3>
+        <h3 class="displayTurn"></h3>
         <div class="buttons">
             <button class="btn" id="resetBtn">Reset Game</button>
             <button class="btn" id="playBtn" onclick="openForm()">Play Game</button>
@@ -32,20 +32,20 @@
                 <div class="formWrapper">
                     <form action="#" id="gameForm">
                         <div class="playerForm">
-                            <label for="playerOne" class="formLabel pOne">Player One:</label>
+                            <label for="player1Name" class="formLabel pOne">Player One:</label>
                             <input
                             type="text"
-                            name="playerOne"
-                            id="playerOne"
+                            name="player1Name"
+                            id="player1Name"
                             placeholder="Player One"
                             required>
                         </div>
                         <div class="playerForm">
-                            <label for="playerTwo" class="formLabel pTwo">Player Two:</label>
+                            <label for="player2Name" class="formLabel pTwo">Player Two:</label>
                             <input
                             type="text"
-                            name="playerTwo"
-                            id="PlayerTwo"
+                            name="player2Name"
+                            id="player2Name"
                             placeholder="Player Two"
                             required>
                         </div>

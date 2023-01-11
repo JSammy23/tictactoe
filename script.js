@@ -100,12 +100,14 @@ const adjustDom = (className, text) => {
 
 const initializeGame = (data) => {
     initializeVariables(data)
-    
+    adjustDom('displayTurn', `${data.player1Name}'s turn`)
     addEventListenerToBoard(data)
 }
 
 const changePlayer = (data) => {
     data.currentPlayer = data.currentPlayer === "X" ? "O" : "X"
+    let displayTurnText = data.currentPlayer === "X" ? data.player1Name : data.player2Name
+    adjustDom('displayTurn', `${displayTurnText}'s turn`)
 }
 
 function openForm() {

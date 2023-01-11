@@ -62,6 +62,8 @@ const playMove = (box, data) => {
     } else if (data.gameMode === 1){
         // easy AI
         //change back to player
+        easyAiMove(data)
+        currentPlayer = "X"
     }
     
     
@@ -113,6 +115,28 @@ const changePlayer = (data) => {
     data.currentPlayer = data.currentPlayer === "X" ? "O" : "X"
     let displayTurnText = data.currentPlayer === "X" ? data.player1Name : data.player2Name
     adjustDom('displayTurn', `${displayTurnText}'s turn`)
+}
+
+const easyAiMove = (data) => {
+    changePlayer(data)
+    data.round++
+    let avalableSpaces = data.board.filter(
+        (box) => box !== "X" && box !== "O"
+    )
+    let move = avalableSpaces[Math.floor(Math.random() * avalableSpaces.length)]
+    data.board[move] = data.playerTwo
+    setTimeout(() => {
+        let box = document.getElementById(`${move}`);
+        box.textContent = data.playerTwo;
+        box.classList.add("player2");
+      }, 200);
+      console.log(data)
+
+      if (endConditions(data)) {
+        return;
+      }
+
+      changePlayer(data)
 }
 
 function openForm() {

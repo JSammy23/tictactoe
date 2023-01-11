@@ -70,13 +70,11 @@ const endConditions = (data) => {
     return false
 }
 
-const checkWinner = (data, player) => {
+const checkWinner = (data) => {
     let result = false;
     winConditions.forEach((condition) => {
       if (
-        data.board[condition[0]] === player &&
-        data.board[condition[1]] === player &&
-        data.board[condition[2]] === player
+        data.board[condition[0]] === data.board[condition[1]] && data.board[condition[1]] === data.board[condition[2]]
       ) {
         console.log('Player has won')
         data.gameOver = true

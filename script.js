@@ -62,6 +62,9 @@ const playMove = (box, data) => {
 const endConditions = (data) => {
     if (checkWinner(data)) {
         // Adjust DOM to reflect win
+        let winnerName = 
+        data.currentPlayer === "X" ? data.player1Name : data.player2name
+        adjustDom("displayTurn", winnerName  + " has won the game!")
         return true
     } else if (data.round === 9){
         //Adjust DOM to reflect tie
@@ -83,6 +86,12 @@ const checkWinner = (data) => {
     });
     return result;
 };
+
+const adjustDom = (className, text) => {
+    const elem = document.querySelector(`.${className}`);
+    // elem.style.display = 'block'
+    elem.textContent = text
+}
 
 const initializeGame = (data) => {
     initializeVariables(data)
